@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+  <!-- CSS Reset -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+  <!-- Milligram CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+  <!-- You should properly set the path from the main file. -->
+
+  <style>
+    body {
+      padding: 5em 10em;
+    }
+  </style>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <form method="POST" action="">
+    <label>Name:</label><br />
+    <input type="text" name="name"><br />
+    <label>Description:</label><br />
+    <input type="text" name="description"><br />
+    <label>Value:</label><br />
+    <input type="number" name="value" id="">
+    <input type="submit">
+  </form>
+
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Value</th>
+      <th>Kind</th>
+      <th>Delete</th>
+    </tr>
+    {{range .Transactions}}
+    <tr>
+      <td>{{.ID}}</td>
+      <td>{{.Name}}</td>
+      <td>{{.Description}}</td>
+      <td>{{.Value}}</td>
+      <td>{{.Kind}}</td>
+      <td>
+        <a style="cursor:pointer;" onclick="fetch('/', {method: 'DELETE', body:'{{.ID}}'}); window.location.reload()">delete</a>
+      </td>
+    </tr>
+    {{end}}
+  </table>
+</body>
+
+</html>
