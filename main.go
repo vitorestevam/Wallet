@@ -34,7 +34,6 @@ func main() {
 				Value:       value,
 				Kind:        db.Paying,
 			}
-
 			db.CreateTransaction(database, transaction)
 
 		case http.MethodDelete:
